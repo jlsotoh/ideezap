@@ -25,13 +25,6 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         mContext = getApplicationContext();
 
-        /*boolean isCompatible = ZapparEmbed.isCompatible(mContext);
-
-        if (isCompatible) {
-            Intent i = new Intent(this, ZapparEmbed.getZapcodeClassForIntent());
-            startActivity(i);
-        }*/
-
         final Button btnARG = findViewById(R.id.btn_AR);
         btnARG.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,11 +41,8 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-
-        // The Zappar component report analytics events using the LocalBroadcastManager
         mManager = LocalBroadcastManager.getInstance(mContext);
-
-// Listen for the Zappar-specific actions
+        // Listen for the Z-specific actions
         IntentFilter filter = new IntentFilter();
         filter.addAction(ZapparEmbed.ACTION_ANALYTICS_EXPERIENCE_START);
         filter.addAction(ZapparEmbed.ACTION_ANALYTICS_EXPERIENCE_END);
