@@ -10,6 +10,8 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.zappar.ZapparEmbed;
@@ -19,19 +21,12 @@ public class MainActivity extends AppCompatActivity  {
 
     Context mContext;
     LocalBroadcastManager mManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = getApplicationContext();
-
-        final Button btnARG = findViewById(R.id.btn_AR);
-        btnARG.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                botonAR();
-            }
-        });
 
         final Button btnDeep = findViewById(R.id.btnDeepLink);
         btnDeep.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +45,10 @@ public class MainActivity extends AppCompatActivity  {
 
         BroadcastReceiver mReceiver = new BroadcastReceiver() {
             @Override
-            public void onReceive(Context context, Intent zapparIntent) {
-                String deepLinkId = zapparIntent.getStringExtra(ZapparEmbed.EXTRA_ANALYTICS_DEEP_LINK_ID);
+            public void onReceive(Context context, Intent zIntent) {
+                String deepLinkId = zIntent.getStringExtra(ZapparEmbed.EXTRA_ANALYTICS_DEEP_LINK_ID);
 
-                switch (zapparIntent.getAction()) {
+                switch (zIntent.getAction()) {
                     case ZapparEmbed.ACTION_ANALYTICS_EXPERIENCE_START:
                         Log.d("CustomAnalytics", "Zappar experience started: " + deepLinkId);
                         break;
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity  {
                         Log.d("CustomAnalytics", "Zappar experience ended: " + deepLinkId);
                         break;
                     case ZapparEmbed.ACTION_ANALYTICS_EXPERIENCE_CUSTOM_EVENT:
-                        String eventName = zapparIntent.getStringExtra(ZapparEmbed.EXTRA_ANALYTICS_EVENT_NAME);
+                        String eventName = zIntent.getStringExtra(ZapparEmbed.EXTRA_ANALYTICS_EVENT_NAME);
                         Log.d("CustomAnalytics", "Zappar experience " + deepLinkId + " emitted custom event: " + eventName);
                         break;
                 }
@@ -75,17 +70,11 @@ public class MainActivity extends AppCompatActivity  {
 
         if (isCompatible) {
             Intent i = new Intent(this, ZapparEmbed.getZapcodeClassForIntent());
-            //i.putExtra(ZapparEmbed.EXTRA_LAUNCH_DEEP_LINK, "z/0ANb1c");
-            i.putExtra(ZapparEmbed.EXTRA_LAUNCH_DEEP_LINK, "z/NjAj1c");
-
+            //Put ZID deeplink
+            i.putExtra(ZapparEmbed.EXTRA_LAUNCH_DEEP_LINK, "z/k2Cp1c");
             startActivity(i);
 
         }
-    }
-
-    public void botonAR(){
-        Intent i = new Intent(this, ZapparEmbed.getZapcodeClassForIntent());
-        startActivity(i);
     }
 
 }

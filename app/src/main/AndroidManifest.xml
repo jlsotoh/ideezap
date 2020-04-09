@@ -14,7 +14,10 @@
 
         <meta-data android:name="com.zappar.embed.API_KEY" android:value="eaQiTywg2bZByA+8XNfsOokgtZM="/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
