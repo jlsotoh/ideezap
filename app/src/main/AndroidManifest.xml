@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        tools:replace="android:theme"
         tools:ignore="GoogleAppIndexingWarning" >
 
         <meta-data android:name="com.zappar.embed.API_KEY" android:value="eaQiTywg2bZByA+8XNfsOokgtZM="/>
