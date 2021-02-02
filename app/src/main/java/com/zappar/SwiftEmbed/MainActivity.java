@@ -853,7 +853,10 @@ public class MainActivity extends AppCompatActivity  {
         try {
 
             JSONObject obj = new JSONObject(jsonName);
-            String zid = "z/sxjl1c";
+            //estado de cuenta (flujo)
+            String zid = "z/YYel1c";
+            //zappar ar (flujo)
+            zid = "z/hzLp1ccc";
             String data = zid + "?data=" + obj.toString();
 
             Intent iFW = new Intent(MainActivity.this,  clInit.getClassForIntent());
