@@ -856,20 +856,16 @@ public class MainActivity extends AppCompatActivity  {
             //estado de cuenta (flujo)
             String zid = "z/YYel1c";
             //zappar ar (flujo)
-            zid = "z/hzLp1ccc";
+            //zid = "z/hzLp1ccc";
             //blue2 soto
-            zid = "z/cDzo1c";
+            //zid = "z/cDzo1c";
 
             //otraprueba fer
-           // zid = "z/sxjl1c";
+            //zid = "z/sxjl1c";
 
 
-
-
+            zid="z/123asdf";
             String data = zid + "?data=" + obj.toString();
-
-
-
 
             Intent iFW = new Intent(MainActivity.this,  clInit.getClassForIntent());
             iFW.putExtra(clInit.DATA, data);
