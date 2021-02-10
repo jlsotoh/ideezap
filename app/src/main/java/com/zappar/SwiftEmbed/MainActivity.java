@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity  {
 
                 if (zIntent.hasExtra("message")){
                     String message = zIntent.getStringExtra("message");
-                    Log.d("idezap","mensage: "+message);
+                    Log.d("idezap","mensaje: "+message);
                 }
             }
         };
@@ -858,13 +858,13 @@ public class MainActivity extends AppCompatActivity  {
             //zappar ar (flujo)
             //zid = "z/hzLp1ccc";
             //blue2 soto
-            //zid = "z/cDzo1c";
+            zid = "z/cDzo1c";
 
             //otraprueba fer
             //zid = "z/sxjl1c";
 
 
-            zid="z/123asdf";
+            //zid="z/123asdf";
             String data = zid + "?data=" + obj.toString();
 
             Intent iFW = new Intent(MainActivity.this,  clInit.getClassForIntent());

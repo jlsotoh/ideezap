@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    configurations{
+        all*.exclude module: 'okhttp'
+        all*.exclude module: 'okio'
+    }
 }
 
 repositories {
@@ -35,10 +39,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.airbnb.android:lottie:3.6.0'
 
     implementation 'com.google.ar:core:1.22.0'
     implementation ('name':'ideearFramework-release', 'ext':'aar')
     implementation ('name':'zappar-release', 'ext':'aar')
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
-
 }
